@@ -1,8 +1,7 @@
 package com.mongodb.service;
 
+import com.mongodb.dto.PaginationMongo;
 import com.mongodb.entity.Arrangement;
-import org.springframework.data.domain.Page;
-import org.springframework.data.domain.Pageable;
 
 import java.util.List;
 
@@ -11,5 +10,7 @@ public interface ArrangementService {
 
     List<Arrangement> getByBandeira(String bandeira);
 
-    List<Arrangement> search(String status, String bandeira, Integer page, Integer size);
+    PaginationMongo search(String status, String bandeira, Integer page, Integer size);
+
+    PaginationMongo searchDetailed(List<String> status, List<String> bandeira, Integer page, Integer size);
 }
